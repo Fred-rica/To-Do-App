@@ -156,7 +156,7 @@
     .todo-item{
       max-width: 60vw;
       white-space: nowrap; 
-      text-overflow: hidden;
+      overflow: hidden;
       text-overflow: ellipsis;
       white-space: initial; 
     }
