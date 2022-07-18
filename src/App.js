@@ -5,14 +5,13 @@ import TodoList from "./components/TodoList";
 
 function App() {
   // STATES
+  const initialState =JSON.parse(localStorage.getItem("todos")) || [];
   const [inputText, SetInputText] = useState(" ");
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(initialState);
   const [status, setStatus] = useState("all");
   const [fillteredTodos, setFillteredTodos] = useState([]);
 
-  useEffect(() => {
-    getLocalTodos();
-  }, []);
+  
 
   useEffect(() => {
     const fillterHandler = () => {
@@ -36,16 +35,10 @@ function App() {
 
   // save to Local storage
   
-
-  const getLocalTodos =()=>{
-    if (localStorage.getItem("todos")===null){
-      localStorage.setItem("todos",JSON.stringify([]));
-    }
-    else{
-      let todoLocal=JSON.parse(localStorage.getItem("todos"))
-      setTodos(todoLocal);
-    }
-  }
+  useEffect(() =>{
+    localStorage.setItem("todos",JSON.stringify(todos));
+  }, [todos]
+  );
 
   return (
     <div className="App">

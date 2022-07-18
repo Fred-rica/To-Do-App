@@ -26,6 +26,7 @@ function Form({ SetInputText, todos, setTodos, inputText,setStatus }) {
         type="text"
         value={inputText}
         className="todo-input"
+        
       />
       <button onClick={submitTodoHandler} className="todo-button" type="submit">
         <i className="fas fa-plus-square"></i>
